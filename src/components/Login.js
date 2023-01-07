@@ -1,19 +1,18 @@
+
 import React, { useEffect } from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { useState } from "react";
-import{toast} from 'react-toastify';
+import { toast } from "react-toastify";
 
 function Login({ setProgress }) {
   useEffect(() => {
-    setProgress(50);
-    setTimeout(() => {  
+    setProgress(60);
+    setTimeout(() => {
       setProgress(100);
-    }
-    , 300);
-
+    }, 200);
+    // eslint-disable-next-line
   }, []);
-
 
   const [user, setUser] = useState({
     email: "",
@@ -27,37 +26,37 @@ function Login({ setProgress }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   try{
-let loggedInUser=await signInWithEmailAndPassword(auth, user.email, user.password);
-if(loggedInUser.user){
-  toast.success('User Logged In Successfully!', {
-    position: "top-right",
-    autoClose: 5000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    theme: "dark",
-    });
-    localStorage.setItem("user", JSON.stringify(loggedInUser.user));
-
-
-   }
-  }
-   catch(er){
-    toast.error(er.message, {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "dark",
+    try {
+      let loggedInUser = await signInWithEmailAndPassword(
+        auth,
+        user.email,
+        user.password
+      );
+      if (loggedInUser.user) {
+        toast.success("User Logged In Successfully!", {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+        localStorage.setItem("user", JSON.stringify(loggedInUser.user));
+      }
+    } catch (er) {
+      toast.error(er.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
       });
-
-   }
+    }
   };
 
   return (

@@ -6,12 +6,12 @@ import { toast } from "react-toastify";
 
 function Signup({setProgress}) {
   useEffect(() => {
-    setProgress(50);
+    setProgress(60);
     setTimeout(() => {  
       setProgress(100);
     }
     , 300);
-
+ // eslint-disable-next-line
   }, []);
 
   const [user, setUser] = useState({
