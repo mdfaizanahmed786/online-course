@@ -4,11 +4,17 @@ const courses=[1,2,3,4,5,6]
 function Course() {
   return (
     <div>{
+
+      </Card>
+   
+       }</div>
+
      courses.map((course,index)=>{
        return <Card key={index} />
        }) 
       
     }</div>
+
   )
 }
 
