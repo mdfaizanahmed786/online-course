@@ -11,6 +11,7 @@ function Course({ setProgress }) {
   }, []);
   return (
     <div style={{ height: "100vh", maxWidth: "1000px", margin: "auto" }}>
+      <h1 style={{ textAlign: "center", marginTop: "50px" }}>Courses</h1>
       <div
         style={{
           display: "grid",

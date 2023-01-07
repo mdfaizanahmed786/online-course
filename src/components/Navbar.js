@@ -70,7 +70,7 @@ function Navbar({ user }) {
           <div className="d-flex">
             {!user ? (
               <div>
-                <button className="btn btn-primary">
+                <button className="btn btn-primary me-md-4">
                   <Link className="nav-link" to="/login">
                     Login
                   </Link>
@@ -83,14 +83,19 @@ function Navbar({ user }) {
               </div>
             ) : (
               <>
-                <ul className="navbar-nav me-auto mb-2 mb-lg-0 active">
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 active d-flex align-items-center gap-2">
                   <li className="nav-item">
                     <Link className="nav-link" to="/dashboard">
                       Dashboard
                     </Link>
                   </li>
+                  <li className="nav-item text-white ">
+                  
+                    Welcome {user?.email.replace(/@.*/,'')}
+                  
+                  </li>
                 </ul>
-                <button className="btn btn-danger" onClick={logOutUser}>Logout</button>
+                <button className="btn btn-danger mx-2" onClick={logOutUser}>Logout</button>
               </>
             )}
           </div>
