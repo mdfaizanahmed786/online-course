@@ -1,9 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { auth } from "../firebase/firebase";
+import { signOut } from "firebase/auth";
+import { toast } from "react-toastify";
 
-function Navbar() {
+
+function Navbar({ user }) {
+  const logOutUser=()=>{
+    signOut(auth).then(() => {
+    toast.success('Logged Out Successfully!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "dark",
+      });
+
+    }).catch((error) => {
+      toast.error(error.message, {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    });
+  }
   return (
-    <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
+    <nav className="navbar navbar-dark bg-dark navbar-expand-lg position-sticky top-0 z-3 shadow-sm">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
           Free Online Courses
@@ -36,28 +66,34 @@ function Navbar() {
                 About
               </Link>
             </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/login">
-                Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/signup">
-                Signup
-              </Link>
-            </li>
           </ul>
-          <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <div className="d-flex">
+            {!user ? (
+              <div>
+                <button className="btn btn-primary">
+                  <Link className="nav-link" to="/login">
+                    Login
+                  </Link>
+                </button>
+                <button className="btn btn-primary">
+                  <Link className="nav-link" to="/signup">
+                    Signup
+                  </Link>
+                </button>
+              </div>
+            ) : (
+              <>
+                <ul className="navbar-nav me-auto mb-2 mb-lg-0 active">
+                  <li className="nav-item">
+                    <Link className="nav-link" to="/dashboard">
+                      Dashboard
+                    </Link>
+                  </li>
+                </ul>
+                <button className="btn btn-danger" onClick={logOutUser}>Logout</button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </nav>

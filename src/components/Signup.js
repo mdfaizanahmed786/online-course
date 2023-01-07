@@ -42,7 +42,7 @@ function Signup({setProgress}) {
           progress: undefined,
           theme: "dark",
           });
-          localStorage.setItem("user", JSON.stringify(uuid.user));
+          // localStorage.setItem("user", JSON.stringify(uuid.user));
       }
 
 
@@ -60,7 +60,7 @@ function Signup({setProgress}) {
         });
     }
 
-    localStorage.setItem("check", check);
+    // localStorage.setItem("check", check);
   };
 
   return (

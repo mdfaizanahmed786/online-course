@@ -43,7 +43,7 @@ function Login({ setProgress }) {
           progress: undefined,
           theme: "dark",
         });
-        localStorage.setItem("user", JSON.stringify(loggedInUser.user));
+        // localStorage.setItem("user", JSON.stringify(loggedInUser.user));
       }
     } catch (er) {
       toast.error(er.message, {
