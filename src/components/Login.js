@@ -2,7 +2,8 @@ import React from 'react'
 
 function Login() {
   return (
-    <div><form>
+    <div style={{height:'100vh', marginTop:'12w0px'}}><form>
+      <h2 className='mb-5'>Welcome Back!</h2>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
       <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>

@@ -2,7 +2,8 @@ import React from 'react'
 
 function Signup() {
   return (
-    <div><form>
+    <div style={{height:'100vh', marginTop:'120px'}}><form>
+       <h2 className='mb-5'>Signup to get started!</h2>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
       <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>

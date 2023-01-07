@@ -2,9 +2,9 @@ import React from 'react'
 
 function Footer() {
   return (
-    <div style={{ backgroundColor:'#303134', display:'flex', padding:'0px 10px', alignItems:'center',color:'white'}}>
+    <div style={{ backgroundColor:'#303134', display:'flex', padding:'15px 10px 15px 10px', alignItems:'center',color:'white', justifyContent:'center', fontWeight:'bold' }}>
         <p>
-        copyright &copy; onlineCourse.com
+        Copyright &copy; FreeCourses.com
         </p>
         <p>
 

@@ -11,14 +11,18 @@ function App() {
   return (
     <div className="App">
       <Navbar />
+      <div style={{maxWidth:"800px", margin:'auto'}}>
+
       <Routes >
-        <Route element={<Course />} path="/course" />
+        <Route element={<Course />} path="/courses" />
         <Route element={<Login />} path="/login" />
         <Route element={<Signup />} path="/signup" />
         <Route element={<About />} path="/about" />
         <Route element={<Home />} path="/" />
         
       </Routes>
+
+      </div>
       <Footer />
     </div>
   );
