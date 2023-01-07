@@ -13,7 +13,7 @@ function Home({setProgress}) {
   }, []);
 
   return (
-    <div style={{ maxWidth: "1000px", margin: "auto"}}>
+    <div style={{ maxWidth: "1100px", margin: "auto"}}>
         <HeroSection/>
         <FeaturedCourses/>
     </div>
