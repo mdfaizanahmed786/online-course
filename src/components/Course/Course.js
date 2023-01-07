@@ -5,10 +5,6 @@ function Course() {
   return (
     <div>{
 
-      </Card>
-   
-       }</div>
-
      courses.map((course,index)=>{
        return <Card key={index} />
        }) 
