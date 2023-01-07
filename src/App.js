@@ -21,6 +21,10 @@ function App() {
         localStorage.setItem('user', JSON.stringify(user))
         setUser(user)
       }
+      else{
+        localStorage.removeItem('user')
+        setUser(null)
+      }
     })
   },[user])
   return (
