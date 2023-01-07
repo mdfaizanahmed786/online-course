@@ -2,7 +2,7 @@ import React from 'react'
 
 function Signup() {
   return (
-    <div style={{height:'100vh', marginTop:'120px'}}><form>
+    <div style={{height:'100vh', paddingTop:'120px', maxWidth:"800px", margin:'auto'}}><form>
        <h2 className='mb-5'>Signup to get started!</h2>
     <div className="mb-3">
       <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>

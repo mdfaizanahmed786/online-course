@@ -4,7 +4,7 @@ import HeroSection from './HeroSection'
 
 function Home() {
   return (
-    <div>
+    <div style={{ maxWidth: "1000px", margin: "auto"}}>
         <HeroSection/>
         <FeaturedCourses/>
     </div>

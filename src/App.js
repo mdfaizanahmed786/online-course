@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <div style={{maxWidth:"800px", margin:'auto'}}>
+      <div>
 
       <Routes >
         <Route element={<Course />} path="/courses" />
