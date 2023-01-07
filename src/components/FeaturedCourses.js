@@ -1,8 +1,14 @@
 import React from 'react'
-
+import Card from './Card'
+const courses=[1,2,3]
 function FeaturedCourses() {
   return (
-    <div>FeaturedCourses</div>
+    <div>{
+        courses.map((course,index)=>{
+          return <Card key={index} />
+          }) 
+   
+       }</div>
   )
 }
 
