@@ -4,9 +4,9 @@ const courses=[1,2,3,4,5,6]
 function Course() {
   return (
     <div>{
-        courses.map((course,index)=>{
-          return <Card key={index} />
-          }) 
+        courses.map((course,index)=>
+           <Card key={index} />
+          ) 
    
        }</div>
   )
