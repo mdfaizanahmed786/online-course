@@ -1,6 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-function Dashboard() {
+function Dashboard({setProgress}) {
+  useEffect(() => {
+    setProgress(50);
+    setTimeout(() => {  
+      setProgress(100);
+    }
+    , 300);
+
+  }, []);
+
   return (
     <div>Dashed post</div>
   )

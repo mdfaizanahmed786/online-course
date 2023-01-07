@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "../Card";
 const courses = [1, 2, 3, 4, 5, 6];
-function Course() {
+function Course({ setProgress }) {
+  useEffect(() => {
+    setProgress(50);
+    setTimeout(() => {
+      setProgress(100);
+    }, 300);
+  }, []);
   return (
     <div style={{ height: "100vh", maxWidth: "1000px", margin: "auto" }}>
       <div

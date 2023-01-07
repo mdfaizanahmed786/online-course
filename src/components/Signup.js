@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { auth } from "../firebase/firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
+import { toast } from "react-toastify";
 
-function Signup() {
+function Signup({setProgress}) {
+  useEffect(() => {
+    setProgress(50);
+    setTimeout(() => {  
+      setProgress(100);
+    }
+    , 300);
+
+  }, []);
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -14,9 +26,40 @@ function Signup() {
     setUser({ ...user, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(user);
+    const {email, password}=user;
+    try{
+      const uuid=await createUserWithEmailAndPassword(auth, email, password);
+      if(uuid.user){
+        toast.success('User Created Successfully!', {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+          });
+          localStorage.setItem("user", JSON.stringify(uuid.user));
+      }
+
+
+    }
+    catch(er){
+      toast.error('An Error occurred!', {
+        position: "top-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+        });
+    }
+
     localStorage.setItem("check", check);
   };
 
@@ -66,7 +109,7 @@ function Signup() {
             type="checkbox"
             className="form-check-input"
             id="exampleCheck1"
-            onChange={(e) => setCheck(!e)}
+            onChange={(e) => setCheck(!check)}
             checked={check}
             name="check"
           />

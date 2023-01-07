@@ -1,7 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 
-function Login() {
+function Login({ setProgress }) {
+  useEffect(() => {
+    setProgress(50);
+    setTimeout(() => {  
+      setProgress(100);
+    }
+    , 300);
+
+  }, []);
+
+
   const [user, setUser] = useState({
     email: "",
     password: "",
@@ -58,7 +68,7 @@ function Login() {
             name="password"
           />
         </div>
-      
+
         <button type="submit" className="btn btn-primary">
           Submit
         </button>
