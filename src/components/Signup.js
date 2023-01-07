@@ -48,7 +48,7 @@ function Signup({setProgress}) {
 
     }
     catch(er){
-      toast.error('An Error occurred!', {
+      toast.error(er.message, {
         position: "top-right",
         autoClose: 5000,
         hideProgressBar: false,
