@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import Card from "../Card";
 import { Vortex } from "react-loader-spinner";
 
-function Course({ setProgress,user }) {
+function Course({ setProgress, user }) {
   const [courses, setCourses] = useState([]);
   const [loader, setLoader] = useState(false);
+
   useEffect(() => {
     setProgress(60);
     setTimeout(() => {
@@ -18,17 +19,26 @@ function Course({ setProgress,user }) {
     setLoader(true);
     const response = await data.json();
     setCourses(response);
-    setLoader(false)
+    setLoader(false);
   };
   useEffect(() => {
     fetchData();
   }, []);
+
+  const filterItems = useCallback((e)=>{
+   
+
+    setCourses(
+      courses.filter((course) =>
+        course.courseName.toLowerCase().includes(e.target.value.toLowerCase())
+      )
+    );
+  },[courses])
   return (
     <div style={{ maxWidth: "1000px", margin: "auto" }}>
-      
       <h1 style={{ textAlign: "center", marginTop: "50px" }}>Courses</h1>
       <div className="d-flex  justify-content-center">
-        {loader && (
+        {loader ? (
           <Vortex
             visible={true}
             height="80"
@@ -38,6 +48,21 @@ function Course({ setProgress,user }) {
             wrapperClass="vortex-wrapper"
             colors={["red", "green", "blue", "yellow", "orange", "purple"]}
           />
+        ) : (
+          <>
+            <div className="mb-3 w-100">
+              <input
+                type="text"
+                className="form-control"
+                id="exampleInputPassword1"
+                name="search"
+                placeholder="Search for our courses"
+                onChange={(e) => {
+                  filterItems(e);
+                }}
+              />
+            </div>
+          </>
         )}
       </div>
       <div
