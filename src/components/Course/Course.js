@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Card from "../Card";
-const courses = [1, 2, 3, 4, 5, 6];
+
 function Course({ setProgress }) {
+  const [courses, setCourses]=useState([]);
   useEffect(() => {
     setProgress(60);
     setTimeout(() => {
@@ -12,13 +13,13 @@ function Course({ setProgress }) {
 const fetchData=async ()=>{
   const data=await fetch("https://courses-backend-2rjr.onrender.com/");
   const response=await data.json();
-  console.log(response);
+  setCourses(response);
 }
   useEffect(()=>{
      fetchData();
   },[])
   return (
-    <div style={{ height: "100vh", maxWidth: "1000px", margin: "auto" }}>
+    <div style={{  maxWidth: "1000px", margin: "auto" }}>
       <h1 style={{ textAlign: "center", marginTop: "50px" }}>Courses</h1>
       <div
         style={{
@@ -29,7 +30,7 @@ const fetchData=async ()=>{
         }}
       >
         {courses.map((course, index) => {
-          return <Card key={index} />;
+          return <Card key={index} title={course.courseName} description={course.courseDescription} image={course.courseImage}/>;
         })}
       </div>
     </div>

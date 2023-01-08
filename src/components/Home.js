@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import FeaturedCourses from './FeaturedCourses'
 import HeroSection from './HeroSection'
 
 function Home({setProgress}) {
+  const [courses, setCourses]=useState([]);
   useEffect(() => {
     setProgress(60);
     setTimeout(() => {  
@@ -11,11 +12,20 @@ function Home({setProgress}) {
     , 300);
  // eslint-disable-next-line
   }, []);
+  const fetchData=async ()=>{
+    const data=await fetch("https://courses-backend-2rjr.onrender.com/");
+    const response=await data.json();
+    setCourses(response);
+  }
+    useEffect(()=>{
+       fetchData();
+    },[])
+
 
   return (
     <div style={{ maxWidth: "1100px", margin: "auto"}}>
         <HeroSection/>
-        <FeaturedCourses/>
+        <FeaturedCourses courses={courses}/>
     </div>
   )
 }
