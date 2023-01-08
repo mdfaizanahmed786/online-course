@@ -23,7 +23,7 @@ function HeroSection() {
       </div>
       <div>
         <img
-          src="https://cdn.pixabay.com/photo/2019/11/04/10/15/book-4600757_960_720.jpg"
+          src="https://cdn.dribbble.com/users/24711/screenshots/1507479/learngit-teaser.gif"
           className="object-fit-contain rounded-5"
           style={{ height: "500px", width: "500px", borderRadius: "70px" }}
           alt="learn_image"

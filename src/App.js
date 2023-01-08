@@ -39,11 +39,11 @@ function App() {
       <div>
 
       <Routes >
-        <Route element={<Course  setProgress={setProgress} />} path="/courses" />
+        <Route element={<Course  setProgress={setProgress} user={user}/>} path="/courses" />
         <Route element={<Login setProgress={setProgress}/>} path="/login" />
         <Route element={<Signup setProgress={setProgress}/>} path="/signup" />
         <Route element={<About setProgress={setProgress}/>} path="/about" />
-        <Route element={<Home setProgress={setProgress} />} path="/" />
+        <Route element={<Home setProgress={setProgress} user={user}/>} path="/" />
         
       </Routes>
 

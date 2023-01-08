@@ -3,8 +3,10 @@ import { auth } from "../firebase/firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Signup({setProgress}) {
+  const navigate=useNavigate();
   useEffect(() => {
     setProgress(60);
     setTimeout(() => {  
@@ -43,6 +45,7 @@ function Signup({setProgress}) {
           theme: "dark",
           });
           // localStorage.setItem("user", JSON.stringify(uuid.user));
+          navigate("/")
       }
 
 

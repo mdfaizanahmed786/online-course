@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-function FeaturedCourses({ courses }) {
+function FeaturedCourses({ courses,user }) {
   return (
     <div>
       <h2 className="my-lg-5">Featured Courses</h2>
@@ -18,6 +18,7 @@ function FeaturedCourses({ courses }) {
               title={course.courseName}
               description={course.courseDescription}
               image={course.courseImage}
+              user={user}
             />
           );
         })}

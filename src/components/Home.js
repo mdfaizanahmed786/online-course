@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FeaturedCourses from './FeaturedCourses'
 import HeroSection from './HeroSection'
 
-function Home({setProgress}) {
+function Home({setProgress, user}) {
   const [courses, setCourses]=useState([]);
   useEffect(() => {
     setProgress(60);
@@ -25,7 +25,7 @@ function Home({setProgress}) {
   return (
     <div style={{ maxWidth: "1100px", margin: "auto"}}>
         <HeroSection/>
-        <FeaturedCourses courses={courses}/>
+        <FeaturedCourses courses={courses} user={user}/>
     </div>
   )
 }

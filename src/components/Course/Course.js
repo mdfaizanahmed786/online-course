@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Card from "../Card";
 import { Vortex } from "react-loader-spinner";
 
-function Course({ setProgress }) {
+function Course({ setProgress,user }) {
   const [courses, setCourses] = useState([]);
   const [loader, setLoader] = useState(false);
   useEffect(() => {
@@ -25,6 +25,7 @@ function Course({ setProgress }) {
   }, []);
   return (
     <div style={{ maxWidth: "1000px", margin: "auto" }}>
+      
       <h1 style={{ textAlign: "center", marginTop: "50px" }}>Courses</h1>
       <div className="d-flex  justify-content-center">
         {loader && (
@@ -54,6 +55,7 @@ function Course({ setProgress }) {
               title={course.courseName}
               description={course.courseDescription}
               image={course.courseImage}
+              user={user}
             />
           );
         })}

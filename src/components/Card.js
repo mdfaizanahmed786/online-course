@@ -1,6 +1,6 @@
 import React from "react";
 
-function Card({ title, description, image }) {
+function Card({ title, description, image, user }) {
   return (
     <div>
       <div className="card" style={{ width: "18rem" }}>
@@ -11,9 +11,9 @@ function Card({ title, description, image }) {
           <a href="/" className="btn btn-primary me-3">
             Enroll Now
           </a>
-          <a href="/" className="btn btn-danger ">
+          <button className="btn btn-danger " disabled={!user}>
             Start Quiz
-          </a>
+          </button>
         </div>
       </div>
     </div>

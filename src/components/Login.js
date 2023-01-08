@@ -4,8 +4,10 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 function Login({ setProgress }) {
+  const navigate=useNavigate();
   useEffect(() => {
     setProgress(60);
     setTimeout(() => {
@@ -33,7 +35,7 @@ function Login({ setProgress }) {
         user.password
       );
       if (loggedInUser.user) {
-        toast.success("User Logged In Successfully!", {
+        toast.success("Login Success!", {
           position: "top-right",
           autoClose: 5000,
           hideProgressBar: false,
@@ -43,7 +45,9 @@ function Login({ setProgress }) {
           progress: undefined,
           theme: "dark",
         });
+        navigate("/")
         // localStorage.setItem("user", JSON.stringify(loggedInUser.user));
+
       }
     } catch (er) {
       toast.error(er.message, {
