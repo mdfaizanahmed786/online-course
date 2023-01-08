@@ -9,6 +9,14 @@ function Course({ setProgress }) {
     }, 300);
      // eslint-disable-next-line
   }, []);
+const fetchData=async ()=>{
+  const data=await fetch("https://courses-backend-2rjr.onrender.com/");
+  const response=await data.json();
+  console.log(response);
+}
+  useEffect(()=>{
+     fetchData();
+  },[])
   return (
     <div style={{ height: "100vh", maxWidth: "1000px", margin: "auto" }}>
       <h1 style={{ textAlign: "center", marginTop: "50px" }}>Courses</h1>
